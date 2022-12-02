@@ -71,18 +71,47 @@ class _FormWidget extends StatefulWidget {
 }
 
 class __FormWidgetState extends State<_FormWidget> {
+  final _loginTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+  String? errorText;
+
+  void _auth() {
+    final login = _loginTextController.text;
+    final password = _passwordTextController.text;
+    if (login == 'admin' && password == 'admin') {
+      setState(() {
+        errorText = null;
+      });
+      print('Open app');
+    } else {
+      setState(() {
+        errorText = 'Incorrect login or password';
+      });
+    }
+  }
+
+  void _resetPassword() {
+    print('Reset Password');
+  }
+
   @override
   Widget build(BuildContext context) {
+    final errorText = this.errorText;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (errorText != null) ErrorWidget(errorText: errorText),
         Text('Username'),
         SizedBox(height: 5),
-        TextField(),
+        TextField(
+          controller: _loginTextController,
+        ),
         SizedBox(height: 20),
         Text('Password'),
         SizedBox(height: 5),
         TextField(
+          controller: _passwordTextController,
           obscureText: true,
         ),
         SizedBox(height: 20),
@@ -90,20 +119,42 @@ class __FormWidgetState extends State<_FormWidget> {
           children: [
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: _auth,
                 child: Text('Login'),
               ),
             ),
             SizedBox(width: 20),
             Expanded(
               child: TextButton(
-                onPressed: () {},
+                onPressed: _resetPassword,
                 child: Text('Reset password'),
               ),
             ),
           ],
         )
       ],
+    );
+  }
+}
+
+class ErrorWidget extends StatelessWidget {
+  const ErrorWidget({
+    Key? key,
+    required this.errorText,
+  }) : super(key: key);
+
+  final String errorText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        color: Color(0xFFF44336),
+        borderRadius: BorderRadius.all(Radius.circular(4)),
+      ),
+      margin: EdgeInsets.only(bottom: 20),
+      child: Center(child: Text(errorText)),
     );
   }
 }
