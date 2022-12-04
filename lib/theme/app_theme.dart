@@ -6,12 +6,15 @@ class AppTheme {
 
   ThemeData get dark {
     return ThemeData(
+      scaffoldBackgroundColor: UserColors.backgroundColor,
+      appBarTheme: AppBarTheme(
+        backgroundColor: UserColors.backgroundColor,
+        elevation: 0,
+      ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: Colors.white,
       ),
       inputDecorationTheme: InputDecorationTheme(
-        // filled: true,
-        // fillColor: Colors.white,
         contentPadding: EdgeInsets.all(15),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
@@ -59,6 +62,11 @@ class AppTheme {
           foregroundColor: MaterialStateProperty.all(Colors.white),
           overlayColor: MaterialStateProperty.all(UserColors.darkAccentColor),
         ),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: UserColors.backgroundColor,
+        selectedItemColor: UserColors.accentColor,
+        unselectedItemColor: Colors.white30,
       ),
       textTheme: TextTheme(
         bodyMedium: TextStyle(
