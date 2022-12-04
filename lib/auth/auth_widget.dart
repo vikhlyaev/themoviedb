@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/main/main_screen_widget.dart';
 import 'package:themoviedb/theme/user_colors.dart';
 
 class AuthWidget extends StatefulWidget {
@@ -12,10 +13,7 @@ class _AuthWidgetState extends State<AuthWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UserColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: UserColors.backgroundColor,
-        elevation: 0,
         title: Text('Login to your account'),
       ),
       body: ListView(
@@ -71,8 +69,8 @@ class _FormWidget extends StatefulWidget {
 }
 
 class __FormWidgetState extends State<_FormWidget> {
-  final _loginTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: 'admin');
+  final _passwordTextController = TextEditingController(text: 'admin');
   String? errorText;
 
   void _auth() {
@@ -82,7 +80,7 @@ class __FormWidgetState extends State<_FormWidget> {
       setState(() {
         errorText = null;
       });
-      print('Open app');
+      Navigator.of(context).pushReplacementNamed('/main');
     } else {
       setState(() {
         errorText = 'Incorrect login or password';
