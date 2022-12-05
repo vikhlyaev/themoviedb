@@ -76,6 +76,16 @@ class AppTheme {
         titleMedium: TextStyle(
           color: Colors.white,
         ),
+        headlineMedium: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        headlineSmall: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
