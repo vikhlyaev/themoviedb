@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/main/main_screen_widget.dart';
-import 'package:themoviedb/theme/user_colors.dart';
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({super.key});
