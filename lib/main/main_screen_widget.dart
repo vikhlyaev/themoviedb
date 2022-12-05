@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/movies/movies_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -12,7 +13,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
 
   static const _widgetOptions = <Widget>[
     Text('News'),
-    Text('Movies'),
+    MoviesWidget(),
     Text('TV Shows')
   ];
 
@@ -47,9 +48,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
         ],
         onTap: onSelectedBar,
       ),
-      body: Center(
-        child: _widgetOptions[_selectedIndex],
-      ),
+      body: _widgetOptions[_selectedIndex],
     );
   }
 }
