@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/theme/user_colors.dart';
 import '../../resources/resources.dart';
 
 class MoviesWidget extends StatelessWidget {
@@ -64,33 +65,38 @@ class MovieCardWidget extends StatelessWidget {
     return SizedBox(
       width: 175,
       height: 303,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            child: Image(
-              width: 175,
-              height: 250,
-              fit: BoxFit.cover,
-              image: AssetImage(Images.poster),
+      child: GestureDetector(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              child: Image(
+                width: 175,
+                height: 250,
+                fit: BoxFit.cover,
+                image: AssetImage(Images.poster),
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Text(
-            'Wonder Woman',
-            style: Theme.of(context).textTheme.headlineSmall,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(height: 5),
-          Text(
-            '16 Oct 2022',
-            style: Theme.of(context).textTheme.bodyMedium,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+            SizedBox(height: 10),
+            Text(
+              'Wonder Woman',
+              style: Theme.of(context).textTheme.headlineSmall,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 5),
+            Text(
+              '16 Oct 2022',
+              style: Theme.of(context).textTheme.bodyMedium,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
+        onTap: () {
+          print(1);
+        },
       ),
     );
   }
