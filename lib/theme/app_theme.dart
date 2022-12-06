@@ -15,6 +15,10 @@ class AppTheme {
         cursorColor: Colors.white,
       ),
       inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(
+          color: Colors.white30,
+          fontSize: 16,
+        ),
         contentPadding: EdgeInsets.all(15),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
