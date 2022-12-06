@@ -11,12 +11,6 @@ class MainScreenWidget extends StatefulWidget {
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedIndex = 0;
 
-  static const _widgetOptions = <Widget>[
-    Text('News'),
-    MoviesWidget(),
-    Text('TV Shows')
-  ];
-
   onSelectedBar(int index) {
     if (_selectedIndex == index) return;
     setState(() {
@@ -48,7 +42,14 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
         ],
         onTap: onSelectedBar,
       ),
-      body: _widgetOptions[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [
+          Text('News'),
+          MoviesWidget(),
+          Text('TV Shows'),
+        ],
+      ),
     );
   }
 }
