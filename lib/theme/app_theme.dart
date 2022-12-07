@@ -77,6 +77,10 @@ class AppTheme {
           color: Colors.white,
           fontSize: 16,
         ),
+        bodySmall: TextStyle(
+          color: Colors.white30,
+          fontSize: 12,
+        ),
         titleMedium: TextStyle(
           color: Colors.white,
         ),
@@ -88,6 +92,11 @@ class AppTheme {
         headlineSmall: TextStyle(
           color: Colors.white,
           fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+        displayMedium: TextStyle(
+          color: Colors.white,
+          fontSize: 32,
           fontWeight: FontWeight.bold,
         ),
       ),
